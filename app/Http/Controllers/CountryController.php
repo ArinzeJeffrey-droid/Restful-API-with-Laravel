@@ -17,4 +17,12 @@ class CountryController extends Controller
         $country = CountryModel::create($request->all());
         return response()->json($country, 201);
     }
+    public function updateCountry(Request $request, CountryModel $country){
+        $country->update($request->all());
+        return response()->json($country, 200);
+    }
+    public function deleteCountry(Request $request, CountryModel $country){
+        $country->delete();
+        return response()->json("Country deleted", 200);
+    }
 }
